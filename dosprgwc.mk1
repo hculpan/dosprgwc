@@ -1,0 +1,24 @@
+!define BLANK ""
+C:\Users\usucuha\src\dosprgwc\graphics.obj : C:\Users\usucuha\src\dosprgwc\s&
+rc\graphics.c .AUTODEPEND
+ @C:
+ cd C:\Users\usucuha\src\dosprgwc
+ *wcc src\graphics.c -i="C:\WATCOM/h" -w4 -e25 -zq -od -d2 -bt=dos -fo=.obj &
+-ml
+
+C:\Users\usucuha\src\dosprgwc\main.obj : C:\Users\usucuha\src\dosprgwc\src\m&
+ain.c .AUTODEPEND
+ @C:
+ cd C:\Users\usucuha\src\dosprgwc
+ *wcc src\main.c -i="C:\WATCOM/h" -w4 -e25 -zq -od -d2 -bt=dos -fo=.obj -ml
+
+C:\Users\usucuha\src\dosprgwc\dosprgwc.exe : C:\Users\usucuha\src\dosprgwc\g&
+raphics.obj C:\Users\usucuha\src\dosprgwc\main.obj C:\Users\usucuha\src\dosp&
+rgwc\src\graphics.h .AUTODEPEND
+ @C:
+ cd C:\Users\usucuha\src\dosprgwc
+ @%write dosprgwc.lk1 FIL graphics.obj,main.obj
+ @%append dosprgwc.lk1 
+ *wlink name dosprgwc d all sys dos op m op maxe=25 op q op symf @dosprgwc.l&
+k1
+
