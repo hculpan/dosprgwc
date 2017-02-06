@@ -17,11 +17,13 @@ word *my_clock = (word *)0x046C;      /* this points to the 18.2hz system
     SetupGraphicsMode();
 
     for (i = 0; i < 10000; i++) {
-        int x = rand()%SCREEN_WIDTH,
-            y = rand()%SCREEN_HEIGHT,
+        int x1 = rand()%SCREEN_WIDTH,
+            y1 = rand()%SCREEN_HEIGHT,
+            x2 = rand()%SCREEN_WIDTH,
+            y2 = rand()%SCREEN_HEIGHT,
             z = rand()%NUM_COLORS;
         
-        PlotPixel(x, y, z);
+        DrawLine(x1, y1, x2, y2, z);
     }
     
     getch();

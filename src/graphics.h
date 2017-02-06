@@ -5,10 +5,14 @@
 #define SCREEN_HEIGHT   200
 #define NUM_COLORS      256
 
+typedef unsigned char byte;
+
 void SetupGraphicsMode();
 
 void SetupTextMode();
 
 void PlotPixel(int x, int y, unsigned char color);
+
+void DrawLine(int x1, int y1, int x2, int y2, byte color);
 
 #endif
