@@ -2,6 +2,7 @@
 
 #include <dos.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define VIDEO_SEGMENT   0xA000
 
@@ -10,13 +11,18 @@
 
 union REGS regs;
 
-byte far *VGA = (byte far*)0xA0000000L;     
+byte far *VGA = (byte far*)0xA0000000L;
 unsigned short offset;
+
+byte *vbuff;
 
 void SetupGraphicsMode() {
     regs.h.ah = 0x00;
     regs.h.al = 0x13;
     int86(0x10, &regs, &regs);
+
+    vbuff = malloc(64000);
+    memset(vbuff, 0, 64000);
 }
 
 void SetupTextMode() {
@@ -77,4 +83,12 @@ void FillRectangle(int x1, int y1, int x2, int y2, byte color) {
             VGA[offset++] = color;
         }
     }
+}
+
+void PlotPixelBuffer(int x, int y, byte color) {
+  vbuff[(y << 8) + (y << 6) + x] = color;
+}
+
+void DisplayBuffer() {
+  memcpy(VGA, vbuff, 64000);
 }
