@@ -68,3 +68,13 @@ void DrawLine(int x1, int y1, int x2, int y2, byte color) {
     }
   }
 }
+
+void FillRectangle(int x1, int y1, int x2, int y2, byte color) {
+    int i = x1, j = y1, offset = 0;
+    for (j = y1; j <= y2; j++) {
+        offset = (j << 8) + (j << 6) + x1;
+        for (i = x1; i <= x2; i++) {
+            VGA[offset++] = color;
+        }
+    }
+}

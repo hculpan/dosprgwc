@@ -5,6 +5,7 @@
 *.elf
 *.exe
 *.map
+*.err
 
 # Precompiled Headers
 *.gch

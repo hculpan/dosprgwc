@@ -10,13 +10,13 @@ word *my_clock = (word *)0x046C;      /* this points to the 18.2hz system
                                          clock. */
 
 void main() {
-    int i = 0;
+    int i = 0, j;
     
     srand(*my_clock);
 
     SetupGraphicsMode();
 
-    for (i = 0; i < 10000; i++) {
+/*    for (i = 0; i < 1000; i++) {
         int x1 = rand()%SCREEN_WIDTH,
             y1 = rand()%SCREEN_HEIGHT,
             x2 = rand()%SCREEN_WIDTH,
@@ -35,7 +35,11 @@ void main() {
 
     if (i < 20000) { // we were not prematurely interrupted
         getch();
-    }
+    }*/
+
+    FillRectangle(10, 10, SCREEN_WIDTH - 10, SCREEN_HEIGHT - 10, 10);
+
+    getch();
 
     SetupTextMode();
 }
