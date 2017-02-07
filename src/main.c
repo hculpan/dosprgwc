@@ -9,7 +9,7 @@ typedef unsigned short word;
 word *my_clock = (word *)0x046C;      /* this points to the 18.2hz system
                                          clock. */
 
-    void main() {
+void main() {
     int i = 0;
     
     srand(*my_clock);
@@ -24,9 +24,18 @@ word *my_clock = (word *)0x046C;      /* this points to the 18.2hz system
             z = rand()%NUM_COLORS;
         
         DrawLine(x1, y1, x2, y2, z);
+        if (i % 100 == 0 && kbhit()) {
+            char c = getch();
+            if (c == 27) {
+                i = 20001;
+                break;
+            }
+        }
     }
-    
-    getch();
+
+    if (i < 20000) { // we were not prematurely interrupted
+        getch();
+    }
 
     SetupTextMode();
 }

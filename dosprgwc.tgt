@@ -63,8 +63,8 @@ WVList
 0
 15
 MItem
-10
-graphics.c
+14
+src\graphics.c
 16
 WString
 4
@@ -81,8 +81,8 @@ WVList
 0
 19
 MItem
-6
-main.c
+10
+src\main.c
 20
 WString
 4
@@ -117,8 +117,8 @@ WVList
 0
 27
 MItem
-10
-graphics.h
+14
+src\graphics.h
 28
 WString
 3

@@ -1,3 +1,3 @@
-project : C:\Users\usucuha\src\dosprgwc\dosprgwc.exe .SYMBOLIC
+project : C:\src\dosprgwc\dosprgwc.exe .SYMBOLIC
 
-!include C:\Users\usucuha\src\dosprgwc\dosprgwc.mk1
+!include C:\src\dosprgwc\dosprgwc.mk1
